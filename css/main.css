@@ -1,0 +1,397 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background: linear-gradient(135deg, #2c3e50, #4a69bd); */
+    background-color: #fff;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
+}
+
+.calculator
+{
+    width: 100%;
+    max-width: 1200px;
+    background-color: #c0c0c0;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    border: 12px solid #808080;
+    position: relative;
+}
+
+.calc-top {
+    min-height: 300px;
+}
+
+.calc-top-panel {
+    min-height: 150px;
+}
+
+#radiator-panel {
+    background-color: #808080;
+}
+
+.radiator {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #000;
+    border: 5px solid #707070;
+    max-width: 30%;
+}
+
+.radiator-part {
+    min-width: 10px;
+    max-width: 50px;
+    min-height: 100px;
+    background-color: #606060;
+}
+
+.display-container {
+    /* background: linear-gradient(to bottom, #0a3a1a, #0c5a2a); */
+    background-color: black;
+    color: #ff4f04;
+    padding: 10px 15px;
+    text-align: right;
+    border-bottom: 4px solid #404040;
+    font-family: 'Segment7', monospace;
+    position: relative;
+    overflow: hidden;
+}
+
+.display-label {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 0.8rem;
+    color: #aaa;
+    font-family: 'Courier New', monospace;
+}
+
+.display-main {
+    overflow: hidden;
+    padding-right: 15px;
+    font-size: 3rem;
+    font-weight: bold;
+    min-height: 90px;
+    text-overflow: ellipsis;
+    text-shadow: 0 0 5px #ff3636;
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(17, 1fr);
+}
+
+.display-seg {
+    display: flex;
+    border: 1px solid #333;
+    border-radius: 10%;
+    background-color: #333;
+    justify-content: stretch;
+    margin-right: 10px;
+}
+
+.sign-seg {
+    min-width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign {
+    width: 20px;
+    height: 5px;
+}
+
+.seg-comm {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 10px;
+}
+
+.seg-number {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+.comm {
+    border-radius: 50%;
+    /* background-color: #ff4f04; */
+    border: 2px solid black;
+    height: 10px;
+}
+
+.display-indicators {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #7eff7e;
+}
+
+.decoration {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #7eff7e;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    padding: 20px;
+    background-color: #a0a0a0;
+    border-top: 4px solid #808080;
+}
+
+.keypad-panel {
+    display: flex;
+    background-color: #a0a0a0;
+    min-width: 150px;
+    min-height: 150px;
+}
+
+.keypad-grid {
+    display: grid;
+    background-color: #c0c0c0;
+    min-width: 150px;
+    min-height: 150px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+#memory-pad {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.keypad-btn {
+    background-color: rgb(245, 207, 92);
+    text-align: center;
+    border: 1px solid black;
+    font-weight: bold;
+}
+
+.keypad-btn:hover {
+    background-color: rgb(255, 192, 4);
+}
+
+.keypad-btn:active {
+    background-color: rgb(155, 117, 2);
+}
+
+#mode-switch {
+    max-height: 40px;
+    margin-right: 10px;
+}
+
+.mode-switch-btn {
+    min-width: 40px;
+}
+
+#mode-P + label {
+    color: black;
+    font-weight: normal;
+}
+
+#mode-P:checked+label {
+    font-weight: bold;
+    background-color: rgb(155, 117, 2);
+}
+
+#mode-R + label {
+    color: black;
+    font-weight: normal;
+}
+
+#mode-R:checked + label {
+    font-weight: bold;
+    background-color: rgb(155, 117, 2);
+}
+
+.precision-btn {
+    min-width: 40px;
+    min-height: 40px;
+    margin-right: 10px;
+}
+#control-panel {
+    display: flex;
+    justify-content: space-between;
+}
+.precision-switch {
+    display: flex;
+    justify-content: flex-end;
+}
+.precision-labels {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+}
+.precision-label {
+    display: block;
+    font-size: 20px;
+    min-height: 40px;
+}
+
+#precision input:not(:checked)+label {
+    color: black;
+    outline: none;
+}
+
+#precision input:checked + label:not(.red-btn){
+    background-color: rgb(155, 117, 2);
+}
+
+#precision input:checked + label:is(.red-btn){
+    background-color: rgb(145, 18, 18);
+}
+
+.precision-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.precision-toggle {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.precision-toggle input {
+    margin-right: 10px;
+}
+
+.red-btn {
+    background-color: red;
+    text-align: center;
+    border: 1px solid black;
+    font-weight: bold;
+}
+.red-btn:hover {
+    background-color: rgb(255, 64, 64);
+}
+.red-btn:active {
+    background-color: rgb(145, 18, 18);
+}
+
+#ticker {
+  max-width: 50px;
+  text-align: center;
+  margin: auto;
+}
+
+#rotator {
+  height: 140px;
+  max-width: 50px;
+  font-family: "Times New Roman";
+  font-size: 50px;
+  line-height: 70px;
+  background-image:
+  url(http://ataredo.com/external/image/flip.png),
+  url(http://ataredo.com/external/image/flip.png),
+  url(http://ataredo.com/external/image/flip.png);
+  background-position: 0 0, 50% 50%, 100% 150%;
+  background-size: 300% 50%;
+  background-repeat: no-repeat;
+  margin: 0 0 10px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+#rotator span {
+  width: 100%;
+  height: 50%;
+  display: inline-block;
+  cursor: default;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+#result {
+  height: 30px;
+  font-size: 20px;
+  color: white;
+  line-height: 30px;
+  letter-spacing: 3px;
+  -webkit-box-shadow: 0 0 3px black;
+  box-shadow: 0 0 3px black;
+}
+
+.segment-font {
+    font-family: monospace;
+}
+
+.instr-container {
+    position: relative;
+    top: -10px;
+    z-index: -1;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 1100px;
+}
+
+.small-info {
+    display: inline-block;
+    font-size: 0.9rem;
+    margin-left: 10px;
+    background-color: #e0e0e0;
+}
+
+#rdiv-btn {
+    background-image: url('../img/rdiv.svg');
+    background-size: 1em 1em;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#div-btn {
+    background-image: url('../img/div.svg');
+    background-size: 1em 1em;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* font-size: 1.5em; */
+}
+
+#printReg-btn {
+    background-image: url('../img/printReg.svg');
+    background-size: 1em 1em;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* font-size: 1.5em; */
+}
+
+#goto-btn {
+    background-image: url('../img/goto.svg');
+    background-size: 1em 1em;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* font-size: 1.5em; */
+}
+
+#pow-btn {
+    font-size: 2em;
+}
