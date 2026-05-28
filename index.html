@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эмулятор микрокалькулятора "Искра-123"</title>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/big-decimal.min.js"></script>
+    <script src="js/calc.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="calc-top">
+                <div id="radiator-panel" class="calc-top-panel">
+                    <div class="radiator">
+                        <div class="radiator-part"></div>
+                        <div class="radiator-part"></div>
+                        <div class="radiator-part"></div>
+                        <div class="radiator-part"></div>
+                        <div class="radiator-part"></div>
+                        <div class="radiator-part"></div>
+                        <div class="radiator-part"></div>
+                        <div class="radiator-part"></div>
+                        <div class="radiator-part"></div>
+                        <div class="radiator-part"></div>
+                        <div class="radiator-part"></div>
+                        <div class="radiator-part"></div>
+                    </div>
+                </div>
+                <div class="calc-top-panel"></div>
+            </div>
+            <div class="display-container">
+                <div class="display-main segment-font" id="display">
+                    <div class="sign-seg">
+                        <div id="SIGN" class="sign"></div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG0" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM0" class="comm"></div>
+                        </div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG1" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM1" class="comm"></div>
+                        </div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG2" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM2" class="comm"></div>
+                        </div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG3" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM3" class="comm"></div>
+                        </div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG4" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM4" class="comm"></div>
+                        </div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG5" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM5" class="comm"></div>
+                        </div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG6" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM6" class="comm"></div>
+                        </div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG7" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM7" class="comm"></div>
+                        </div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG8" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM8" class="comm"></div>
+                        </div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG9" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM9" class="comm"></div>
+                        </div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG10" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM10" class="comm"></div>
+                        </div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG11" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM11" class="comm"></div>
+                        </div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG12" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM12" class="comm"></div>
+                        </div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG13" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM13" class="comm"></div>
+                        </div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG14" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM14" class="comm"></div>
+                        </div>
+                    </div>
+                    <div class="display-seg">
+                        <div id="SEG15" class="seg-number"></div>
+                        <div class="seg-comm">
+                            <div id="COMM15" class="comm"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="keypad">
+                <div id="control-panel" class="keypad-panel">
+                    <div id="mode-switch" class="btn-group" role="group">
+                        <input type="radio" class="btn-check" name="moderadio" id="mode-P" autocomplete="off">
+                        <label id="mode-P-label" class="keypad-btn mode-switch-btn" for="mode-P">П</label>
+
+                        <input type="radio" class="btn-check" name="moderadio" id="mode-R" autocomplete="off" checked>
+                        <label id="mode-R-label" class="keypad-btn mode-switch-btn" for="mode-R">Р</label>
+                    </div>
+                    <div class="precision-switch">
+                        <div id="precision" class="btn-group-vertical" role="group">
+                            <input id="pV" type="radio" class="btn-check" name="btnradio" autocomplete="off" checked>
+                            <label class="red-btn precision-btn" for="pV"></label>
+
+                            <input id="p13" type="radio" class="btn-check" name="btnradio" autocomplete="off">
+                            <label class="keypad-btn precision-btn" for="p13"></label>
+
+                            <input id="p11" type="radio" class="btn-check" name="btnradio" autocomplete="off">
+                            <label class="keypad-btn precision-btn" for="p11"></label>
+
+                            <input id="p9" type="radio" class="btn-check" name="btnradio" autocomplete="off">
+                            <label class="keypad-btn precision-btn" for="p9"></label>
+
+                            <input id="p7" type="radio" class="btn-check" name="btnradio" autocomplete="off">
+                            <label class="keypad-btn precision-btn" for="p7"></label>
+
+                            <input id="p5" type="radio" class="btn-check" name="btnradio" autocomplete="off">
+                            <label class="keypad-btn precision-btn" for="p5"></label>
+
+                            <input id="p3" type="radio" class="btn-check" name="btnradio" autocomplete="off">
+                            <label class="keypad-btn precision-btn" for="p3"></label>
+                        </div>
+                        <div id="precision-labels">
+                            <div class="precision-label">В</div>
+                            <div class="precision-label">13</div>
+                            <div class="precision-label">11</div>
+                            <div class="precision-label">9</div>
+                            <div class="precision-label">7</div>
+                            <div class="precision-label">5</div>
+                            <div class="precision-label">3</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="memory-pad" class="keypad-grid">
+                    <button class="keypad-btn" data-action="a5">А5</button>
+                    <button class="keypad-btn" data-action="ac">СК</button>
+                    <button class="keypad-btn" data-action="a4">A4</button>
+                    <button class="keypad-btn" data-action="a1">A1</button>
+                    <button class="keypad-btn" data-action="a3">A3</button>
+                    <button class="keypad-btn" data-action="a2">A2</button>
+                    <button class="keypad-btn" data-action="[3]+" style="font-size: 2em;">③</button>
+                    <button class="keypad-btn" data-action="[2]+" style="font-size: 2em;">②</button>
+                </div>
+                <div class="keypad-grid">
+                    <button class="keypad-btn" data-number="7">7</button>
+                    <button class="keypad-btn" data-number="8">8</button>
+                    <button class="keypad-btn" data-number="9">9</button>
+                    <button class="keypad-btn" data-number="4">4</button>
+                    <button class="keypad-btn" data-number="5">5</button>
+                    <button class="keypad-btn" data-number="6">6</button>
+                    <button class="keypad-btn" data-number="1">1</button>
+                    <button class="keypad-btn" data-number="2">2</button>
+                    <button class="keypad-btn" data-number="3">3</button>
+                    <button class="keypad-btn" style="grid-column: 1/3;" data-number="0">0</button>
+                    <button class="keypad-btn" data-number=",">,</button>
+                </div>
+                <div class="keypad-grid">
+                    <button class="keypad-btn" data-action="subtract">-</button>
+                    <button id="div-btn" class="keypad-btn" data-action="divide"></button>
+                    <button id="rdiv-btn" class="keypad-btn" data-action="rdivide"></button>
+                    <button class="keypad-btn" style="grid-row: 2/4;" data-action="add">+</button>
+                    <button class="keypad-btn" style="grid-row: 2/4;" data-action="multiply">x</button>
+                    <button class="keypad-btn" data-action="sqrt">√</button>
+                    <button id="pow-btn" class="keypad-btn" data-action="pow">↑</button>
+                    <button class="red-btn keypad-btn" style="grid-column: 1/3;" data-action="equals">=</button>
+                    <button class="keypad-btn" data-action="+-">/-/</button>
+                </div>
+                <div class="keypad-grid">
+                    <button id="printReg-btn" class="keypad-btn" data-action="printReg"></button>
+                    <button id="goto-btn" class="keypad-btn" data-action="goto"></button>
+                    <button class="keypad-btn" data-action="label">T</button>
+                    <button class="keypad-btn" data-action="int">/</button>
+                    <button class="keypad-btn" data-action="abs">|x|</button>
+                    <button class="keypad-btn" data-action="progEnd">КП</button>
+                    <button class="keypad-btn" style="grid-row: 3/4;" data-number=")">)</button>
+                    <button class="keypad-btn" style="grid-row: 3/5;" data-action="start">Пуск</button>
+                    <button class="keypad-btn" style="grid-row: 3/5;" data-action="stop">Стоп</button>
+                    <button class="keypad-btn" data-number="(">(</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Инструкция -->
+        <div class="instr-container">
+            <h2>Инструкция по эксплуатации</h2>
+            <p>
+                <b>Эмулятор советского микрокалькулятора "Искра-123"</b><br>
+                Для включения калькулятора нажмите клавишу "СК".<br>
+                <br>
+                - Режимы работы: программируемый (П) и режим ручного счёта и вычисления по программе (Р).<br>
+                - Регистры: Стек из 3 регистров для работы (вычислений) и регистры A1-A5 для хранения чисел в памяти.<br>
+                <br>
+                Режимы работы переключаются с помощью двухклавишного переключателя П-Р.<br>
+                Точность вычислений задаётся с помощью клавиш точности (В (Выключена, т.е. точность 
+                до 16 разрядов целой части и до 15 дробной разрядной сетки дисплея), 13 знаков после запятой, 11 знаков, 9, 7, 5, 3).<br>
+                <br>
+                <b>Переполнение разрядной сетки дисплея</b>: признак - у всех разрядов загорятся запятые! 
+                Для продолжения работы после переполнения необходимо нажать клавишу "СК".
+                Переполнение наступает при количестве разрядов целой части числа более 16.<br><br>
+                <b>Режим ручного счёта и вычисления по программе (Р):</b><br>
+                В этом режиме калькулятор работает как обычный арифметический калькулятор, 
+                позволяя выполнять операции над числами, в том числе хранящимися в регистрах A1-A5<br>
+                Для выполнения счёта по программе необходимо:<br> 
+                    1) Ввести программу в программируемом режиме ("П").<br>
+                    2) Нажать клавишу "Р" на переключателе режимов.<br>
+                    3) Нажать клавишу "КП", чтобы программа выполнялась с начала. <br>
+                    4) Ввести число, если необходимо (если предполагается начальный ввод в программу) <br>
+                    5) Нажать клавишу "Пуск". <br>
+                Результат выполнения программы вычислений отобразится на дисплее.<br>
+                <br>
+                <b>Программируемый режим (П):</b><br>
+                В этом режиме задаётся программа, путём последовательного нажатия необходимых
+                клавиш, нажатие которых последовательно будет имитироваться при выполнении
+                программы. Для пошагового просмотра программы и замены (при необходимости)
+                отдельных команд используются клавиши "Пуск" и "СК". Для перехода к просмотру
+                следующей команды необходимо нажимать клавишу "Пуск", а для перехода к предыдущей -
+                клавишу "СК". Для замены текущей команды нажмите клавишу "СК", на экране погаснет
+                старая команда, а затем нажмите необходимую клавишу (новую команду), которая 
+                запишется в программу вместо погасшей раннее на экране старой команды.
+                Для возврата в начало программы перейдите в режим "Р" и нажмите клавишу "КП",
+                а затем вернитесь в режим "П".<br>
+                Ввод программы обязательно завершается командой "КП".<br>
+                <br>
+                <b>Назначение клавиш:</b><br>
+                <b>0-9, ","</b>: Ввод цифр и запятой<br>
+                <b>А1-А5</b>: Сохранение числа в регистре памяти A1-A5 и загрузка из него.<br>
+                <i class="small-info">Примечание: если перед клавишей А1-А5 следовала одна из: ввод числа, "=", "↑", 
+                    "/", "/-/", "|x|", ")", "√", то происходит сохранение числа в регистр. Если же
+                    перед клавишей А1-А5 следовала одна из: "+", "-", "х", "÷", "¬÷", 
+                    "<span style="font-size: 1.2em;"> ②</span>", 
+                    "<span style="font-size: 1.2em;"> ③</span>", A1-A5, "♦", "T", "СК", " ►", "КП", "СТОП", то происходит загрузка числа
+                    из регистра памяти в стек для дальнейших операций.<br>
+                    АВТОВЫБОРКА ИЗ РЕГИСТРА А1 ЭМУЛЯТОРОМ НЕ ПОДДЕРЖИВАЕТСЯ, В ОТЛИЧИЕ ОТ ОРИГИНАЛЬНОГО
+                    УСТРОЙСТВА!
+                </i><br>
+                <b>СК:</b><br>
+                <ul>
+                    <li>В режиме "Р": если перед этим была нажата клавиша "=", то происходит
+                        полная очистка всех регистров и сброс всех операций. Регистры 
+                        памяти А1-А5 НЕ ЗАТРАГИВАЮТСЯ!<br>
+                        Если же перед этим была нажата любая другая клавиша, то
+                        происходит только очищение текущего вводимого значения и экрана, 
+                        можно заново ввести текущее значение.
+                    </li>
+                    <li>
+                        В режиме "П": позволяет просматривать программу пошагово с конца (показывает
+                        предыдущую команду, смещает текущую позицию (выполняемую команду) назад).
+                    </li>
+                </ul>
+                <b><span style="font-size: 1.2em;">②</span></b>: добавить число к регистру А2<br>
+                <b><span style="font-size: 1.2em;">③</span></b>: добавить число к регистру А3<br>
+                <b>+, -, х, ÷, ¬÷</b>: клавиши операций сложения, вычитания, умножения деления, 
+                обратного деления<br>
+                <b>√</b>: квадратный корень<br>
+                <b>↑</b>: возведение в квадрат<br>
+                <b>|x|</b>: модуль числа<br>
+                <b>/</b>: целая часть числа<br>
+                <b>=</b>: выполнить операцию (равно)<br>
+                <b>/-/</b>: смена знака числа<br>
+                <b>♦</b>: вывести содержимое регистров памяти <b>(НЕ ПОДДЕРЖИВАЕТСЯ!)</b><br>
+                <b>►</b>: перейти к команде, перед которой в программе стоит команда "метка" (Т)<br>
+                <b>T</b>: пометить команду меткой (ставить перед текущей командой)<br>
+                <b>КП</b>: конец программы<br>
+                <i class="small-info">
+                    Примечание: в режиме "Р" возвращает программу в начало. 
+                </i><br>
+                <b>ПУСК</b>:<br>
+                <ul>
+                    <li>В режиме "Р": запускает счёт по программе с текущей позиции (если 
+                        нажать "КП" перед этим - программа начнёт выполняться с начала)
+                    </li>
+                    <li>В режиме "П": смещает вперёд текущую позицию в программе
+                        (т.е. отображает следующую команду).
+                    </li>
+                </ul>
+                <b>СТОП</b>: позволяет вставить в программу прерывание для ввода очередного
+                значения и отображения промежуточного результата вычислений 
+                <b>(НЕ ПОДДЕРЖИВАЕТСЯ!)</b><br>
+                <b>(, )</b>: скобки.<br>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
