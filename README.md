@@ -1,2 +1,4 @@
-# iskra123
-Web-emulator of soviet microcalculator "Iskra-123"
+# "Искра-123" (Iskra-123)
+Emulator of soviet microcalculator.<br>
+Web application is written on JavaScript.
+User interface - HTML + CSS.
